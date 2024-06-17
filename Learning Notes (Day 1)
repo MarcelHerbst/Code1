@@ -34,3 +34,21 @@ Was ist Visual Studio Code
 Was ist EsLint?
 -	Analysiert denn Code statisch, damit man Probleme schnell gefunden werden können.
 -	ESLint ist in denn meisten Texteditoren
+
+
+
+Commit: 
+
+- Commits bilden die grundbausteine einer Gitprojektzeitleiste.
+
+Branch:
+ 
+- Branches ermöglichen dir das Entwickeln von Feautures, beheben von Fehlern und sichere Experimentieren
+
+Remote:
+
+- Ein Remote-URL ist die offizielle Ausdrucksweise von Git wo dein Code gespeichert ist. 
+
+Respository:
+
+- Es ist ein Ort wor der Code und die Dateien mit denn Revisionsverlaufs speicher kann.
