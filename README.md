@@ -1,1 +1,1 @@
-[linkname](blob/main/Diary/Day1)
+[linkname](Diary/Day1)
