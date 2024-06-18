@@ -1,9 +1,3 @@
-<html>
-
-<head>
-</head>
-
-<body>
 Was ist Git? 
 GIT ist eine Versionskontrollsystem für die Quellcode Verwaltung, um das Open Source Tool verfolgt und die Änderungen protokolliert. (Aufzeichnungs Protokoll system)  
 Wie arbeitet GIT?
@@ -58,5 +52,3 @@ Remote:
 Respository:
 
 - Es ist ein Ort wor der Code und die Dateien mit denn Revisionsverlaufs speicher kann.
-</body>
-</html>
