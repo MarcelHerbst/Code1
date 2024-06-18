@@ -1,1 +1,1 @@
-[linkname](https://github.com/MarcelHerbst/Code1/blob/main/Diary/Day1)
+[linkname](MarcelHerbst/Code1/blob/main/Diary/Day1)
