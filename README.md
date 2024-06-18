@@ -1,1 +1,1 @@
-[linkname](MarcelHerbst/Code1/blob/main/Diary/Day1)
+[linkname](blob/main/Diary/Day1)
