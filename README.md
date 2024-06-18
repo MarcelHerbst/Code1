@@ -1,1 +1,1 @@
-[linkname](Diary/Day1.md)
+[linkname](/Diary/Day1.md)
