@@ -1,3 +1,3 @@
 [Day1](Diary/Day1)
 <br>
-[Screenshots](Image/Picture/AppleVisionFragen.png)
+[Screenshots](Code1/blob/main/Image/Picture/AppleVisionFragen.png)
