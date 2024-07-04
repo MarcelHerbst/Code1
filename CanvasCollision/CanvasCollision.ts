@@ -15,6 +15,7 @@ interface Confetti {
     speed: number;
 }
 
+const max_shapes = 5;
 let shapes: Shape[] = [];
 let confettis: Confetti[] = [];
 
@@ -32,20 +33,29 @@ canvas.addEventListener("click", (event) => {
             speed: Math.random() * 2 + 1
         });
     }
-
-    const shapeType = Math.random() < 0.5 ? "circle" : "square";
-    shapes.push({ x: mouseX, y: mouseY, type: shapeType });
-
-    drawShapes();
-    drawConfetti();
+    const randomNum = Math.random();
+    let shapeType1;
+    
+    if (randomNum < 0.2) {
+        shapeType1 = "circle";
+    } else if (randomNum < 0.4) {
+        shapeType1 = "square";
+    } else if (randomNum < 0.6) {
+        shapeType1 = "triangle";
+    } else {
+        shapeType1 = "hexagon";
+    }
+    
+    shapes.push({ x: mouseX, y: mouseY, type: shapeType1 });
 });
 
 function drawShapes() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     shapes.forEach((shape) => {
+       
         if (shape.y < canvas.height - 40) {
-            shape.y += 0.5; // Bewegung nach unten anpassen (hier um 1 Pixel)
+            shape.y += 0.5;
         }
 
         if (shape.type === "circle") {
@@ -57,9 +67,32 @@ function drawShapes() {
             ctx.fillStyle = "red";
             ctx.fillRect(shape.x - 20, shape.y - 20, 40, 40);
         }
+        else if (shape.type === "triangle") {
+            ctx.beginPath();
+            ctx.moveTo(shape.x, shape.y - 20);
+            ctx.lineTo(shape.x - 20, shape.y + 20);
+            ctx.lineTo(shape.x + 20, shape.y + 20);
+            ctx.closePath();
+            ctx.fillStyle = "green";
+            ctx.fill();
+        }
+        else if (shape.type === "hexagon") {
+            ctx.beginPath();
+            ctx.moveTo(shape.x + 20, shape.y);
+            for (let i = 1; i < 6; i++) {
+                ctx.lineTo(shape.x + 20 * Math.cos(i * 2 * Math.PI / 6), shape.y + 20 * Math.sin(i * 2 * Math.PI / 6));
+            }
+            ctx.closePath();
+            ctx.fillStyle = "purple";
+            ctx.fill();
+        }
+
+        if (shapes.length >= 35) {
+            shapes.splice(0, 1); // Löschen der ersten Form im Array
+        }
     });
 
-    requestAnimationFrame(drawShapes); // Animationsschleife für kontinuierliche Bewegung
+    requestAnimationFrame(drawShapes);
 }
 
 function drawConfetti() {
@@ -72,16 +105,7 @@ function drawConfetti() {
         ctx.fillStyle = confetti.color;
         ctx.fill();
 
-        if (confetti.y > canvas.height) {
-            confettis.splice(index, 1);
-        }
-        else if(confetti.y < canvas.height){
-            confettis.splice(index, 1);
-        }
-        if (confetti.x > canvas.width){
-            confettis.splice(index, 1);
-        }
-        else if (confetti.x < canvas.width){
+        if (confetti.y > canvas.height || confetti.x > canvas.width) {
             confettis.splice(index, 1);
         }
     });
@@ -89,13 +113,13 @@ function drawConfetti() {
     requestAnimationFrame(drawConfetti);
 }
 
-function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
+ function getRandomColor() {
+     const letters = "0123456789ABCDEF";
+     let color = "#";
     for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+         color += letters[Math.floor(Math.random() * 16)];
+     }
+     return color;
 }
 
 drawShapes(); // Starten der Shape-Animation
